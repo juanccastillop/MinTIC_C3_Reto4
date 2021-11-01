@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>TuFinca.com</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="color: #3ad4f0;" href="index.html">TuFinca.com</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="Farms.html">Fincas <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Clients.html">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Messages.html">Mensajes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Categories.html">Categorias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Reservations.html">Reservaciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Reports.html">Reportes</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Mas Info
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Excursiones</a>
+                  <a class="dropdown-item" href="#">Alimentación</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Viajes</a>
+                </div>
+            </li>
+          </ul>
+            <formu class="form-inline">
+                <input  type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-info" type="submit">Buscar</button>
+            </formu>
+        </div>
+    </nav>
+
+    <div class="container mt-4 shadow-lg p-3 mb-5 rounded">
+        <div class="table-responsive">
+        <a name="tabla_Reservaciones" class="h2">Base de Reservaciones</a>
+        <button id="btnCrearReserva" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right;">
+            Agregar Reservacion
+        </button>
+        <table id="Reservas" class="table mt-2 table-bordered table-striped table-hover table-dark">
+            <thead>
+                <tr class="text-center">
+                    <th>FECHA DE INICIO</th>
+                    <th>FECHA DEVOLUCIÓN</th>
+                    <th>ESTADO</th>
+                    <th>FINCA</th>
+                    <th>CLIENTE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbodyReserva">               
+            </tbody>
+        </table>
+        </div>
+    </div>
+       
+    <div id="modalReserva" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Reservación</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioReserva">
+                        <div class="mb-3">
+                            <input id="idReserva" type="hidden" class="form-control" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaInReser" class="col-form-label">Seleccione fecha inicio de la Reservación :</label>
+                            <input id="fechaInReser" placeholder="Digite el Mensaje" type="date" class="form-control"
+                                required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaFinReser" class="col-form-label">Seleccione fecha de devolución de la Reservación:</label>
+                            <input id="fechaFinReser" placeholder="Digite el Mensaje" type="date" class="form-control"
+                                oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="estadoReser" class="col-form-label">Estado de la Reservación :</label>
+                            <input id="estadoReser" placeholder="Digite estado de la reserva" type="text" class="form-control"
+                                required autocomplete="off"
+                                oninvalid="setCustomValidity('Digite un estado')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="selFinca" class="col-form-label">Seleccione nombre de la Finca:</label>
+                            <select id="selFinca" type="text" class="form-select" required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione una Finca de la lista')" oninput="setCustomValidity('')">
+                                <option selected> </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selCliente" class="col-form-label">Seleccione nombre del Cliente:</label>
+                            <select id="selCliente" type="text" class="form-select" required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione un Cliente de la lista')" oninput="setCustomValidity('')">
+                                <option selected> </option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="cerrar" type="button" class="btn btn-secondary" >Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalReservaUp" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Mensajes</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioReservaUp">
+                        <div class="mb-3">
+                            <input id="idReservaUp" type="hidden" class="form-control" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaInReserUp" class="col-form-label">Seleccione fecha inicio de la Reservación :</label>
+                            <input id="fechaInReserUp" placeholder="Digite el Mensaje" type="date" class="form-control"
+                                required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaFinReserUp" class="col-form-label">Seleccione fecha de devolución de la Reservación:</label>
+                            <input id="fechaFinReserUp" placeholder="Digite el Mensaje" type="date" class="form-control"
+                                oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                        </div>            
+                        <div class="mb-3">
+                            <label for="estadoReserUp" class="col-form-label">Estado de la Reservación :</label>
+                            <input id="estadoReserUp" placeholder="Digite estado de la reserva" type="text" class="form-control"
+                                required autocomplete="off"
+                                oninvalid="setCustomValidity('Digite un estado')" oninput="setCustomValidity('')">
+                        </div>
+                        <div class="mb-3">
+                            <label for="selClienteUp" class="col-form-label">Nombre del Cliente:</label>
+                            <input id="selClienteUp" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selFincaUp" class="col-form-label">Nombre de la Finca:</label>
+                            <input id="selFincaUp" readonly type="text" class="form-control" disabled>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="cerrarUp" type="button" class="btn btn-secondary" >Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+    <script src="js/alertify.min.js"></script>
+    <script type="text/javascript" src="js/FunctionReservation.js"></script>
+
+</body>
+
+</html>
