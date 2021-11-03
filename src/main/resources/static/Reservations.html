@@ -102,10 +102,13 @@
                                 oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
                         </div>
                         <div class="mb-3">
-                            <label for="estadoReser" class="col-form-label">Estado de la Reservación :</label>
-                            <input id="estadoReser" placeholder="Digite estado de la reserva" type="text" class="form-control"
-                                required autocomplete="off"
-                                oninvalid="setCustomValidity('Digite un estado')" oninput="setCustomValidity('')">
+                            <label for="estadoReser" class="col-form-label">Seleccione estado de la Reservación:</label>
+                            <select id="estadoReser" type="text" class="form-select" required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione un estado de la lista')" oninput="setCustomValidity('')">
+                                <option selected> </option>
+                                <option value="completed">completed</option>
+                                <option value="cancelled">cancelled</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="selFinca" class="col-form-label">Seleccione nombre de la Finca:</label>
@@ -154,10 +157,13 @@
                                 oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
                         </div>            
                         <div class="mb-3">
-                            <label for="estadoReserUp" class="col-form-label">Estado de la Reservación :</label>
-                            <input id="estadoReserUp" placeholder="Digite estado de la reserva" type="text" class="form-control"
-                                required autocomplete="off"
-                                oninvalid="setCustomValidity('Digite un estado')" oninput="setCustomValidity('')">
+                            <label for="estadoReserUp" class="col-form-label">Seleccione estado de la Reservación :</label>
+                            <select id="estadoReserUp" type="text" class="form-select" required autocomplete="off"
+                                oninvalid="setCustomValidity('Seleccione un estado de la lista')" oninput="setCustomValidity('')">
+                                <option selected> </option>
+                                <option value="completed">completed</option>
+                                <option value="cancelled">cancelled</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="selClienteUp" class="col-form-label">Nombre del Cliente:</label>
@@ -168,7 +174,7 @@
                             <input id="selFincaUp" readonly type="text" class="form-control" disabled>
                         </div>
                         <div class="modal-footer">
-                            <button id="cerrarUp" type="button" class="btn btn-secondary" >Cerrar</button>
+                            <button id="cerrar" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>

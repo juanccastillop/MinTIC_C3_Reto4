@@ -43,8 +43,8 @@ public class ReservationService {
         if(reservacion.getIdReservation()==null){
             return reservationRepository.save(reservacion);
         }else{
-            Optional<Reservation> e= reservationRepository.getReservation(reservacion.getIdReservation());
-            if(e.isEmpty()){
+            Optional<Reservation> eopcional= reservationRepository.getReservation(reservacion.getIdReservation());
+            if(eopcional.isEmpty()){
                 return reservationRepository.save(reservacion);
             }else{
                 return reservacion;
@@ -87,7 +87,7 @@ public class ReservationService {
         }).orElse(false);
         return aBoolean;
     }
-    /*
+    /**
     * Codigo agregado Reto5 - 
     */
     public StatusReservation reporteStatusServicio (){
@@ -96,7 +96,7 @@ public class ReservationService {
         
         return new StatusReservation(completed.size(), cancelled.size() );
     }
-    /*
+    /**
     * Array reservaciones por fecha 
     */
 	public List<Reservation> reporteTiempoServicio (String datoA, String datoB){
@@ -117,11 +117,11 @@ public class ReservationService {
         
         } 
     }
-    /*
+    /**
     * List que retorna el conteo de cliente
     */
 	public List<CountClients> reporteClientesServicio(){
             return reservationRepository.getClientesRepositorio();
         }
-        
+
 }

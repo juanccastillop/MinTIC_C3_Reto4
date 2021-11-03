@@ -55,3 +55,97 @@
             </formu>
         </div>
     </nav>
+
+    <div class="container mt-4 shadow-lg p-3 mb-5 rounded">
+      <div class="table-responsive">
+      <a name="tabla_reporestados" class="h2">Reporte estado Reservaciones</a>
+      <table id="ReporteEstados" class="table mt-2 table-bordered table-striped table-hover table-dark">
+          <thead>
+              <tr class="text-center">
+                  <th>RESERVAS COMPLETADAS</th>
+                  <th>RESERVAS CANCELADAS</th>
+              </tr>
+          </thead>
+          <tbody id="tbodyReporteEstados">               
+          </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="container mt-4 shadow-lg p-3 mb-5 rounded">
+      <div class="table-responsive">
+      <a name="tabla_reporclientes" class="h2">Reporte mejores clientes</a>
+      <table id="ReporteClientes" class="table mt-2 table-bordered table-striped table-hover table-dark">
+          <thead>
+              <tr class="text-center">
+                  <th>CANTIDAD RESERVAS COMPLETADAS</th>
+                  <th>NOMBRE CLIENTE</th>
+              </tr>
+          </thead>
+          <tbody id="tbodyReporteClientes">               
+          </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="container mt-4 shadow-lg p-3 mb-5 rounded">
+      <div class="table-responsive">
+      <a name="tabla_reporfecha" class="h2">Reporte Reservaciones por fecha</a>
+      <button id="btnReporteFecha" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="float: right;">
+          Generar Reporte por fecha
+      </button>
+      <table id="ReporteFecha" class="table mt-2 table-bordered table-striped table-hover table-dark">
+          <thead>
+              <tr class="text-center">
+                  <th>FECHA INICIAL</th>
+                  <th>FECHA FINAL</th>
+                  <th>ESTADO RESERVA</th>
+              </tr>
+          </thead>
+          <tbody id="tbodyReporteFecha">               
+          </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div id="modalReporteFecha" class="modal fade" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header bg-primary text-white">
+                  <h5 class="modal-title" id="exampleModalLabel">Reporte por Fecha</h5>
+              </div>
+              <div class="modal-body">
+                  <form id="formuReporteFecha">
+                      <div class="mb-3">
+                          <label for="fechaInReser" class="col-form-label">Seleccione fecha inicio de la Reservación :</label>
+                          <input id="fechaInReser" placeholder="Digite el Mensaje" type="date" class="form-control"
+                              required autocomplete="off"
+                              oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                      </div>
+                      <div class="mb-3">
+                          <label for="fechaFinReser" class="col-form-label">Seleccione fecha de devolución de la Reservación:</label>
+                          <input id="fechaFinReser" placeholder="Digite el Mensaje" type="date" class="form-control"
+                              oninvalid="setCustomValidity('Seleccione una fecha')" oninput="setCustomValidity('')">
+                      </div>
+                      <div class="modal-footer">
+                          <button id="cerrar" type="button" class="btn btn-secondary" >Cerrar</button>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  crossorigin="anonymous"></script>
+  <script src="js/alertify.min.js"></script>
+  <script type="text/javascript" src="js/FunctionReports.js"></script>
+
+</body>
+
+</html>
