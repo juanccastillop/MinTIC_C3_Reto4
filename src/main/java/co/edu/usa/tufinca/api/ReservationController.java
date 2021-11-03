@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.usa.tufinca.entities.CountClients;
 import co.edu.usa.tufinca.entities.Reservation;
+import co.edu.usa.tufinca.entities.StatusReservation;
 import co.edu.usa.tufinca.services.ReservationService;
 
 @RestController
@@ -51,4 +53,22 @@ public class ReservationController {
     public boolean delete(@PathVariable("id") int reservationId) {
         return reservationService.deleteReservation(reservationId);
     }
+    /*
+    * Codigo agregado Reto5 - 
+    */
+    @GetMapping("/report-status")
+    public StatusReservation getReservas(){
+        return reservationService.reporteStatusServicio();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+     public List<Reservation> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo ){
+         return reservationService.reporteTiempoServicio(dateOne, dateTwo);
+     }
+     
+     @GetMapping("/report-clients")
+     public List<CountClients> getClientes(){
+         return reservationService.reporteClientesServicio();
+     }
+     
 }
